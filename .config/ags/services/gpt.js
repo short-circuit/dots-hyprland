@@ -21,7 +21,7 @@ const PROVIDERS = Object.assign(
       model: "gpt-3.5-turbo",
     },
     ollama: {
-      name: "Ollama (Llama 3)",
+      name: "Ollama (Llama 3.2)",
       logo_name: "ollama-symbolic",
       description: getString("Official Ollama API.\nPricing: Free."),
       base_url: "http://localhost:11434/v1/chat/completions",
