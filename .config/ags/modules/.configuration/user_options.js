@@ -7,7 +7,7 @@ import userOverrides from "../../user_options.js";
 let configOptions = {
   // General stuff
   ai: {
-    defaultGPTProvider: "ollama",
+    defaultGPTProvider: "ollama_gemma2_27b",
     defaultTemperature: 0.9,
     enhancements: true,
     useHistory: true,
@@ -244,23 +244,30 @@ let configOptions = {
 
 // Override defaults with user's options
 let optionsOkay = true;
-function overrideConfigRecursive(userOverrides, configOptions = {}, check = true) {
-    for (const [key, value] of Object.entries(userOverrides)) {
-        if (!check) {
-            configOptions[key] = value;
-            continue;
-        }
-        if (configOptions[key] === undefined && check) {
-            optionsOkay = false;
-        }
-        else if (typeof value === 'object' && !(value instanceof Array)) {
-            if (key === "substitutions" || key === "regexSubstitutions" || key === "extraGptModels") {
-                overrideConfigRecursive(value, configOptions[key], false);
-            } else overrideConfigRecursive(value, configOptions[key]);
-        }
+function overrideConfigRecursive(
+  userOverrides,
+  configOptions = {},
+  check = true
+) {
+  for (const [key, value] of Object.entries(userOverrides)) {
+    if (!check) {
+      configOptions[key] = value;
+      continue;
+    }
+    if (configOptions[key] === undefined && check) {
+      optionsOkay = false;
+    } else if (typeof value === "object" && !(value instanceof Array)) {
+      if (
+        key === "substitutions" ||
+        key === "regexSubstitutions" ||
+        key === "extraGptModels"
+      ) {
+        overrideConfigRecursive(value, configOptions[key], false);
+      } else overrideConfigRecursive(value, configOptions[key]);
     }
   }
 }
+
 overrideConfigRecursive(userOverrides, configOptions);
 if (!optionsOkay)
   Utils.timeout(2000, () =>
