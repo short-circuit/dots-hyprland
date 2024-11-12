@@ -20,7 +20,7 @@ const PROVIDERS = Object.assign(
       key_file: "openai_key.txt",
       model: "gpt-3.5-turbo",
     },
-    ollama: {
+    ollama_llama32: {
       name: "Ollama (Llama 3.2)",
       logo_name: "ollama-symbolic",
       description: getString("Official Ollama API.\nPricing: Free."),
@@ -29,36 +29,23 @@ const PROVIDERS = Object.assign(
       key_file: "ollama_key.txt",
       model: "llama3.2",
     },
-    openrouter: {
-      name: "OpenRouter (Llama-3-70B)",
-      logo_name: "openrouter-symbolic",
-      description: getString("A unified interface for LLMs"),
-      base_url: "https://openrouter.ai/api/v1/chat/completions",
-      key_get_url: "https://openrouter.ai/keys",
-      key_file: "openrouter_key.txt",
-      model: "meta-llama/llama-3-70b-instruct",
+    ollama_gemma2_27b: {
+      name: "Ollama (Gemma2)",
+      logo_name: "ollama-symbolic",
+      description: getString("Official Ollama API.\nPricing: Free."),
+      base_url: "http://localhost:11434/v1/chat/completions",
+      key_get_url: "it's just ollama",
+      key_file: "ollama_key.txt",
+      model: "gemma2:27b",
     },
-    oxygen4o: {
-      name: "Oxygen (GPT-4o)",
-      logo_name: "ai-oxygen-symbolic",
-      description: getString(
-        "An API from Tornado Softwares\nPricing: Free: 100/day\nRequires you to join their Discord for a key"
-      ),
-      base_url: "https://app.oxyapi.uk/v1/chat/completions",
-      key_get_url: "https://discord.com/invite/kM6MaCqGKA",
-      key_file: "oxygen_key.txt",
-      model: "gpt-4o",
-    },
-    zukijourney: {
-      name: "zukijourney (GPT-3.5)",
-      logo_name: "ai-zukijourney",
-      description: getString(
-        "An API from @zukixa on GitHub.\nNote: Keys are IP-locked so it's buggy sometimes\nPricing: Free: 10/min, 800/day.\nRequires you to join their Discord for a key"
-      ),
-      base_url: "https://zukijourney.xyzbot.net/v1/chat/completions",
-      key_get_url: "https://discord.com/invite/Y4J6XXnmQ6",
-      key_file: "zuki_key.txt",
-      model: "gpt-3.5-turbo",
+    ollama_qwen2_code: {
+      name: "Ollama (Qwen2.5 coder)",
+      logo_name: "ollama-symbolic",
+      description: getString("Official Ollama API.\nPricing: Free."),
+      base_url: "http://localhost:11434/v1/chat/completions",
+      key_get_url: "it's just ollama",
+      key_file: "ollama_key.txt",
+      model: "qwen2.5-coder:32b",
     },
   },
   userOptions.sidebar.ai.extraGptModels
