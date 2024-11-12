@@ -1,0 +1,13 @@
+#!/bin/bash
+# Input: class name to search for
+target_class="$1"
+
+# Check if class name is provided
+if [ -z "$target_class" ]; then
+    # echo "Usage: $0 <class_name>"
+    exit 1
+fi
+
+workspace=$(hyprctl clients -j | jq -r --arg input_class $target_class '.[] | select(.class == $input_class) | .workspace.name')
+
+echo $workspace
