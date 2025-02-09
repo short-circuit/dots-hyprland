@@ -112,184 +112,184 @@ let configOptions = {
         'layerSmokeStrength': 0.2,
         'barRoundCorners': 1, // 0: No, 1: Yes
         'fakeScreenRounding': 2, // 0: None | 1: Always | 2: When not fullscreen
-    },
-    image: {
-      columns: 2,
-      batchCount: 20,
-      allowNsfw: false,
-      saveInFolderByTags: false,
-    },
-    pages: {
-      order: ["apis", "tools"],
-      apis: {
-        order: ["gemini", "gpt", "waifu", "booru"],
+      },
+      image: {
+        columns: 2,
+        batchCount: 20,
+        allowNsfw: false,
+        saveInFolderByTags: false,
+      },
+      pages: {
+        order: ["apis", "tools"],
+        apis: {
+          order: ["gemini", "gpt", "waifu", "booru"],
+        },
       },
     },
-  },
-  search: {
-    enableFeatures: {
-      actions: true,
-      commands: true,
-      mathResults: true,
-      directorySearch: true,
-      aiSearch: true,
-      webSearch: true,
-    },
-    engineBaseUrl: "https://www.google.com/search?q=",
-    excludedSites: ["quora.com"],
-  },
-  time: {
-    // See https://docs.gtk.org/glib/method.DateTime.format.html
-    // Here's the 12h format: "%I:%M%P"
-    // For seconds, add "%S" and set interval to 1000
-    format: "%H:%M",
-    interval: 5000,
-    dateFormatLong: "%A, %d/%m", // On bar
-    dateInterval: 5000,
-    dateFormat: "%d/%m", // On notif time
-  },
-  weather: {
-    city: "",
-    preferredUnit: "C", // Either C or F
-  },
-  workspaces: {
-    shown: 10,
-  },
-  dock: {
-    enabled: false,
-    hiddenThickness: 5,
-    pinnedApps: ["firefox", "org.gnome.Nautilus"],
-    layer: "top",
-    monitorExclusivity: true, // Dock will move to other monitor along with focus if enabled
-    searchPinnedAppIcons: false, // Try to search for the correct icon if the app class isn't an icon name
-    trigger: ["client-added", "client-removed"], // client_added, client_move, workspace_active, client_active
-    // Automatically hide dock after `interval` ms since trigger
-    autoHide: [
-      {
-        trigger: "client-added",
-        interval: 500,
+    search: {
+      enableFeatures: {
+        actions: true,
+        commands: true,
+        mathResults: true,
+        directorySearch: true,
+        aiSearch: true,
+        webSearch: true,
       },
-      {
-        trigger: "client-removed",
-        interval: 500,
-      },
-    ],
-  },
-  // Longer stuff
-  icons: {
-    // Find the window's icon by its class with levenshteinDistance
-    // The file names are processed at startup, so if there
-    // are too many files in the search path it'll affect performance
-    // Example: ['/usr/share/icons/Tela-nord/scalable/apps']
-    searchPaths: [""],
-    symbolicIconTheme: {
-      dark: "Adwaita",
-      light: "Adwaita",
+      engineBaseUrl: "https://www.google.com/search?q=",
+      excludedSites: ["quora.com"],
     },
-    substitutions: {
-      "code-url-handler": "visual-studio-code",
-      Code: "visual-studio-code",
-      "GitHub Desktop": "github-desktop",
-      "Minecraft* 1.20.1": "minecraft",
-      "gnome-tweaks": "org.gnome.tweaks",
-      "pavucontrol-qt": "pavucontrol",
-      wps: "wps-office2019-kprometheus",
-      wpsoffice: "wps-office2019-kprometheus",
-      "": "image-missing",
+    time: {
+      // See https://docs.gtk.org/glib/method.DateTime.format.html
+      // Here's the 12h format: "%I:%M%P"
+      // For seconds, add "%S" and set interval to 1000
+      format: "%H:%M",
+      interval: 5000,
+      dateFormatLong: "%A, %d/%m", // On bar
+      dateInterval: 5000,
+      dateFormat: "%d/%m", // On notif time
     },
-    regexSubstitutions: [
-      {
-        regex: /^steam_app_(\d+)$/,
-        replace: "steam_icon_$1",
-      },
-    ],
-  },
-  keybinds: {
-    // Format: Mod1+Mod2+key. CaSe SeNsItIvE!
-    // Modifiers: Shift Ctrl Alt Hyper Meta
-    // See https://docs.gtk.org/gdk3/index.html#constants for the other keys (they are listed as KEY_key)
-    overview: {
-      altMoveLeft: "Ctrl+b",
-      altMoveRight: "Ctrl+f",
-      deleteToEnd: "Ctrl+k",
+    weather: {
+      city: "",
+      preferredUnit: "C", // Either C or F
     },
-    sidebar: {
-      apis: {
-        nextTab: "Page_Down",
-        prevTab: "Page_Up",
-      },
-      options: {
-        // Right sidebar
-        nextTab: "Page_Down",
-        prevTab: "Page_Up",
-      },
-      pin: "Ctrl+p",
-      cycleTab: "Ctrl+Tab",
-      nextTab: "Ctrl+Page_Down",
-      prevTab: "Ctrl+Page_Up",
+    workspaces: {
+      shown: 10,
     },
-    cheatsheet: {
-      keybinds: {
-        nextTab: "Page_Down",
-        prevTab: "Page_Up",
-      },
-      nextTab: "Ctrl+Page_Down",
-      prevTab: "Ctrl+Page_Up",
-      cycleTab: "Ctrl+Tab",
+    dock: {
+      enabled: false,
+      hiddenThickness: 5,
+      pinnedApps: ["firefox", "org.gnome.Nautilus"],
+      layer: "top",
+      monitorExclusivity: true, // Dock will move to other monitor along with focus if enabled
+      searchPinnedAppIcons: false, // Try to search for the correct icon if the app class isn't an icon name
+      trigger: ["client-added", "client-removed"], // client_added, client_move, workspace_active, client_active
+      // Automatically hide dock after `interval` ms since trigger
+      autoHide: [
+        {
+          trigger: "client-added",
+          interval: 500,
+        },
+        {
+          trigger: "client-removed",
+          interval: 500,
+        },
+      ],
     },
-    'onScreenKeyboard': {
+    // Longer stuff
+    icons: {
+      // Find the window's icon by its class with levenshteinDistance
+      // The file names are processed at startup, so if there
+      // are too many files in the search path it'll affect performance
+      // Example: ['/usr/share/icons/Tela-nord/scalable/apps']
+      searchPaths: [""],
+      symbolicIconTheme: {
+        dark: "Adwaita",
+        light: "Adwaita",
+      },
+      substitutions: {
+        "code-url-handler": "visual-studio-code",
+        Code: "visual-studio-code",
+        "GitHub Desktop": "github-desktop",
+        "Minecraft* 1.20.1": "minecraft",
+        "gnome-tweaks": "org.gnome.tweaks",
+        "pavucontrol-qt": "pavucontrol",
+        wps: "wps-office2019-kprometheus",
+        wpsoffice: "wps-office2019-kprometheus",
+        "": "image-missing",
+      },
+      regexSubstitutions: [
+        {
+          regex: /^steam_app_(\d+)$/,
+          replace: "steam_icon_$1",
+        },
+      ],
+    },
+    keybinds: {
+      // Format: Mod1+Mod2+key. CaSe SeNsItIvE!
+      // Modifiers: Shift Ctrl Alt Hyper Meta
+      // See https://docs.gtk.org/gdk3/index.html#constants for the other keys (they are listed as KEY_key)
+      overview: {
+        altMoveLeft: "Ctrl+b",
+        altMoveRight: "Ctrl+f",
+        deleteToEnd: "Ctrl+k",
+      },
+      sidebar: {
+        apis: {
+          nextTab: "Page_Down",
+          prevTab: "Page_Up",
+        },
+        options: {
+          // Right sidebar
+          nextTab: "Page_Down",
+          prevTab: "Page_Up",
+        },
+        pin: "Ctrl+p",
+        cycleTab: "Ctrl+Tab",
+        nextTab: "Ctrl+Page_Down",
+        prevTab: "Ctrl+Page_Up",
+      },
+      cheatsheet: {
+        keybinds: {
+          nextTab: "Page_Down",
+          prevTab: "Page_Up",
+        },
+        nextTab: "Ctrl+Page_Down",
+        prevTab: "Ctrl+Page_Up",
+        cycleTab: "Ctrl+Tab",
+      },
+      'onScreenKeyboard': {
         'layout': "qwerty_full", // See modules/onscreenkeyboard/onscreenkeyboard.js for available layouts
-    },
-    'overview': {
+      },
+      'overview': {
         'scale': 0.18, // Relative to screen size
         'numOfRows': 2,
         'numOfCols': 5,
         'wsNumScale': 0.09,
         'wsNumMarginScale': 0.07,
-    },
-    'sidebar': {
+      },
+      'sidebar': {
         'ai': {
-            'extraGptModels': {
-                'oxygen3': {
-                    'name': 'Oxygen (GPT-3.5)',
-                    'logo_name': 'ai-oxygen-symbolic',
-                    'description': 'An API from Tornado Softwares\nPricing: Free: 100/day\nRequires you to join their Discord for a key',
-                    'base_url': 'https://app.oxyapi.uk/v1/chat/completions',
-                    'key_get_url': 'https://discord.com/invite/kM6MaCqGKA',
-                    'key_file': 'oxygen_key.txt',
-                    'model': 'gpt-3.5-turbo',
-                },
-            }
+          'extraGptModels': {
+            'oxygen3': {
+              'name': 'Oxygen (GPT-3.5)',
+              'logo_name': 'ai-oxygen-symbolic',
+              'description': 'An API from Tornado Softwares\nPricing: Free: 100/day\nRequires you to join their Discord for a key',
+              'base_url': 'https://app.oxyapi.uk/v1/chat/completions',
+              'key_get_url': 'https://discord.com/invite/kM6MaCqGKA',
+              'key_file': 'oxygen_key.txt',
+              'model': 'gpt-3.5-turbo',
+            },
+          }
         },
         'image': {
-            'columns': 2,
-            'batchCount': 20,
-            'allowNsfw': false,
-            'saveInFolderByTags': false,
+          'columns': 2,
+          'batchCount': 20,
+          'allowNsfw': false,
+          'saveInFolderByTags': false,
         },
         'pages': {
-            'order': ["apis", "tools"],
-            'apis': {
-                'order': ["gemini", "gpt", "waifu", "booru"],
-            }
+          'order': ["apis", "tools"],
+          'apis': {
+            'order': ["gemini", "gpt", "waifu", "booru"],
+          }
         },
         'quickToggles': {
-            'order': ["wifi", "bluetooth", "nightlight", "gamemode", "idleinhibitor", "cloudflarewarp"],
+          'order': ["wifi", "bluetooth", "nightlight", "gamemode", "idleinhibitor", "cloudflarewarp"],
         }
-    },
-    'search': {
+      },
+      'search': {
         'enableFeatures': {
-            'actions': true,
-            'commands': true,
-            'mathResults': true,
-            'directorySearch': true,
-            'aiSearch': true,
-            'webSearch': true,
+          'actions': true,
+          'commands': true,
+          'mathResults': true,
+          'directorySearch': true,
+          'aiSearch': true,
+          'webSearch': true,
         },
         'engineBaseUrl': "https://www.google.com/search?q=",
         'excludedSites': ["quora.com"],
-    },
-    'time': {
+      },
+      'time': {
         // See https://docs.gtk.org/glib/method.DateTime.format.html
         // Here's the 12h format: "%I:%M%P"
         // For seconds, add "%S" and set interval to 1000
@@ -298,15 +298,15 @@ let configOptions = {
         'dateFormatLong': "%A, %d/%m", // On bar
         'dateInterval': 5000,
         'dateFormat': "%d/%m", // On notif time
-    },
-    'weather': {
+      },
+      'weather': {
         'city': "",
         'preferredUnit': "C", // Either C or F
-    },
-    'workspaces': {
+      },
+      'workspaces': {
         'shown': 10,
-    },
-    'dock': {
+      },
+      'dock': {
         'enabled': false,
         'hiddenThickness': 5,
         'pinnedApps': ['firefox', 'org.gnome.Nautilus'],
@@ -316,110 +316,111 @@ let configOptions = {
         'trigger': ['client-added', 'client-removed'], // client_added, client_move, workspace_active, client_active
         // Automatically hide dock after `interval` ms since trigger
         'autoHide': [
-            {
-                'trigger': 'client-added',
-                'interval': 500,
-            },
-            {
-                'trigger': 'client-removed',
-                'interval': 500,
-            },
+          {
+            'trigger': 'client-added',
+            'interval': 500,
+          },
+          {
+            'trigger': 'client-removed',
+            'interval': 500,
+          },
         ],
-    },
-    // Longer stuff
-    'icons': {
+      },
+      // Longer stuff
+      'icons': {
         // Find the window's icon by its class with levenshteinDistance
         // The file names are processed at startup, so if there
         // are too many files in the search path it'll affect performance
         // Example: ['/usr/share/icons/Tela-nord/scalable/apps']
         'searchPaths': [''],
         'symbolicIconTheme': {
-            "dark": "Adwaita",
-            "light": "Adwaita",
+          "dark": "Adwaita",
+          "light": "Adwaita",
         },
         substitutions: {
-            'code-url-handler': "visual-studio-code",
-            'Code': "visual-studio-code",
-            'GitHub Desktop': "github-desktop",
-            'Minecraft* 1.20.1': "minecraft",
-            'gnome-tweaks': "org.gnome.tweaks",
-            'pavucontrol-qt': "pavucontrol",
-            'wps': "wps-office2019-kprometheus",
-            'wpsoffice': "wps-office2019-kprometheus",
-            'footclient': "foot",
-            '': "image-missing",
+          'code-url-handler': "visual-studio-code",
+          'Code': "visual-studio-code",
+          'GitHub Desktop': "github-desktop",
+          'Minecraft* 1.20.1': "minecraft",
+          'gnome-tweaks': "org.gnome.tweaks",
+          'pavucontrol-qt': "pavucontrol",
+          'wps': "wps-office2019-kprometheus",
+          'wpsoffice': "wps-office2019-kprometheus",
+          'footclient': "foot",
+          '': "image-missing",
         },
         regexSubstitutions: [
-            {
-                regex: /^steam_app_(\d+)$/,
-                replace: "steam_icon_$1",
-            }
+          {
+            regex: /^steam_app_(\d+)$/,
+            replace: "steam_icon_$1",
+          }
         ]
-    },
-    'keybinds': {
+      },
+      'keybinds': {
         // Format: Mod1+Mod2+key. CaSe SeNsItIvE!
         // Modifiers: Shift Ctrl Alt Hyper Meta
         // See https://docs.gtk.org/gdk3/index.html#constants for the other keys (they are listed as KEY_key)
         'overview': {
-            'altMoveLeft': "Ctrl+b",
-            'altMoveRight': "Ctrl+f",
-            'deleteToEnd': "Ctrl+k",
+          'altMoveLeft': "Ctrl+b",
+          'altMoveRight': "Ctrl+f",
+          'deleteToEnd': "Ctrl+k",
         },
         'sidebar': {
-            'apis': {
-                'nextTab': "Page_Down",
-                'prevTab': "Page_Up",
-            },
-            'options': { // Right sidebar
-                'nextTab': "Page_Down",
-                'prevTab': "Page_Up",
-            },
-            'pin': "Ctrl+p",
-            'cycleTab': "Ctrl+Tab",
-            'nextTab': "Ctrl+Page_Down",
-            'prevTab': "Ctrl+Page_Up",
+          'apis': {
+            'nextTab': "Page_Down",
+            'prevTab': "Page_Up",
+          },
+          'options': { // Right sidebar
+            'nextTab': "Page_Down",
+            'prevTab': "Page_Up",
+          },
+          'pin': "Ctrl+p",
+          'cycleTab': "Ctrl+Tab",
+          'nextTab': "Ctrl+Page_Down",
+          'prevTab': "Ctrl+Page_Up",
         },
         'cheatsheet': {
-            'keybinds': {
-                'nextTab': "Page_Down",
-                'prevTab': "Page_Up",
-            },
-            'nextTab': "Ctrl+Page_Down",
-            'prevTab': "Ctrl+Page_Up",
-            'cycleTab': "Ctrl+Tab",
+          'keybinds': {
+            'nextTab': "Page_Down",
+            'prevTab': "Page_Up",
+          },
+          'nextTab': "Ctrl+Page_Down",
+          'prevTab': "Ctrl+Page_Up",
+          'cycleTab': "Ctrl+Tab",
         }
-    },
-    'bar': {
+      },
+      'bar': {
         // Array of bar modes for each monitor. Hit Ctrl+Alt+Slash to cycle.
         // Modes: "normal", "focus" (workspace indicator only), "nothing"
         // Example for four monitors: ["normal", "focus", "normal", "nothing"]
         'modes': ["normal"]
-    },
-}
-
-// Override defaults with user's options
-function overrideConfigRecursive(userOverrides, configOptions = {}) {
-    for (const [key, value] of Object.entries(userOverrides)) {
-        if (typeof value === 'object' && !(value instanceof Array)) {
-            overrideConfigRecursive(value, configOptions[key]);
-        }
-        else {
-            configOptions[key] = value;
-        }
-    }
-    if (configOptions[key] === undefined && check) {
-      optionsOkay = false;
-    } else if (typeof value === "object" && !(value instanceof Array)) {
-      if (
-        key === "substitutions" ||
-        key === "regexSubstitutions" ||
-        key === "extraGptModels"
-      ) {
-        overrideConfigRecursive(value, configOptions[key], false);
-      } else overrideConfigRecursive(value, configOptions[key]);
+      },
     }
   }
 }
+// Override defaults with user's options
+function overrideConfigRecursive(userOverrides, configOptions = {}) {
+  for (const [key, value] of Object.entries(userOverrides)) {
+    if (typeof value === 'object' && !(value instanceof Array)) {
+      overrideConfigRecursive(value, configOptions[key]);
+    }
+    else {
+      configOptions[key] = value;
+    }
+  }
+  if (configOptions[key] === undefined && check) {
+    optionsOkay = false;
+  } else if (typeof value === "object" && !(value instanceof Array)) {
+    if (
+      key === "substitutions" ||
+      key === "regexSubstitutions" ||
+      key === "extraGptModels"
+    ) {
+      overrideConfigRecursive(value, configOptions[key], false);
+    } else overrideConfigRecursive(value, configOptions[key]);
+  }
+}
+
 
 overrideConfigRecursive(userOverrides, configOptions);
 if (!optionsOkay)
